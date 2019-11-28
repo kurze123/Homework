@@ -23,15 +23,28 @@
 </head>
 <body>
     <h1 class="class1" id="id1">Title</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+    <p class="class">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
     <a href="#">Link</a>
     <script>
+        var newClass1 = document.querySelector(".class");
+        newClass1.classList.add("newClass");
 		var newClass = document.querySelector(".class1");
 		newClass.classList.add('newClass');
 		console.log(newClass.style);
 		var id = document.getElementById("id1");
 		id.style.marginTop = "10 px";
-		id.style.backgroundColor = "red";
+		id.style.backgroundColor = "blue";
+        var all = document.querySelector("*");
+        all.style.color = "red";
+        all.style.textDecoration = "none";
+        var p = document.querySelector("p");
+        p.style.color = "brown";
+        p.style.textTransform = "uppercase";
+        var a = document.querySelector("a");
+        a.style.textTransform = "uppercase";
+        a.style.textDecoration = "underline";
+        a.style.fontWeight = "bold";
+        a.style.fontStyle = "italic";
 	</script>
 </body>
 </html>
