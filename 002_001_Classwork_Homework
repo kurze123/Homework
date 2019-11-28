@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +7,7 @@
 /*        #id1 {
             color: red;
         }
-        .class1 {
+        .classw1 {
             color: blue;
             font-size: 14px;
             text-decoration: underline;
@@ -16,8 +15,17 @@
     </style>
 </head>
 <body>
-    <h1 class="class1" id="id1">Title</h1>
+    <h1 id="id1">Title</h1>
+    <div class="class1" >
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla consequuntur, obcaecati recusandae enim laboriosam eaque, sint incidunt. Perferendis mollitia incidunt blanditiis eveniet, fuga sapiente. Magni dicta maxime fugiat sint soluta?        
+    </div>
     <script>
+        var id1 = document.querySelector("#id1");
+        id1.style.color = "black";
+        var class1 = document.querySelector (".class1");
+        class1.style.color = "blue";
+        class1.style.fontSize = "14px";
+        class1.style.textDecoration = "underline";
 		var newClass = document.querySelector(".class1");
 		newClass.classList.add('newClass');
 		console.log(newClass.style);
@@ -26,4 +34,3 @@
 		id.style.backgroundColor = "red";
 	</script>
 </body>
-</html>
