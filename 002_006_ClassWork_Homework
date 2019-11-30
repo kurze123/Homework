@@ -10,7 +10,7 @@
 		one.insertAdjacentHTML("afterEnd", "<div id=two onclick='rewrite(this)'> two </div");
 		function rewrite (){
 			var newId = document.getElementById("two");
-			two.insertAdjacentHTML("beforeBegin", "<div id=two_first></div>");
+			two.insertAdjacentHTML("beforeBegin", "<div id=two_first>text</div>");
 			document.getElementById("two").id = "two_second";
 		}
     // Добавьте после дива с id=one еще один див с текстом two и id=two
