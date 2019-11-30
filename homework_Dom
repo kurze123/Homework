@@ -38,7 +38,9 @@
 		
 	}
 	function selectLast() {
-		element.style.color= "black";
+		if (element != false){
+		    element.style.color= "black";
+		}
 		index = list.childNodes.length -1;
 		element = list.childNodes[index];
 		element.style.color= "red";
@@ -50,7 +52,9 @@
 				index = i;
 			}
 		}
-		element.style.color= "black";
+		if (element != false){
+		    element.style.color= "black";
+		}
 		index += 1;
 		if (index > list.childNodes.length -1) {
 			index = 0;
@@ -62,7 +66,9 @@
 	
 	function selectPrevious() {
 		index = Array.from(list.childNodes).indexOf(element);
-		element.style.color= "black";
+		if (element != false){
+		    element.style.color= "black";
+		}
 		index -= 1;
 		if (index < 0) {
 			index = list.childNodes.length -1;
