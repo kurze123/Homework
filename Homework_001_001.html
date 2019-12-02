@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM</title>
+	<script src="Homework_001_script.js" defer></script>
+</head>
+<body>
+
+	<ul id="myUL"><li>Первый пункт</li><li>Второй пункт</li><li>Третий пункт</li></ul>
+
+<script>
+
+</script>
+	
+ <form>
+   <p><input type="button" value="Выбрать первый элемент" onclick="selectFirst()"></p>
+   <p><input type="button" value="Выбрать последний элемент" onclick="selectLast()"></p>
+   <p><input type="button" value="Выбрать следующий элемент" onclick="selectNext()"></p>
+   <p><input type="button" value="Выбрать предыдущий элемент" onclick="selectPrevious()"></p>
+   <p><input type="button" value="Добавить элемент" onclick="append(this.form)"></p>
+   <p><input type="button" value="Удалить элемент" onclick="remove()"></p>
+   <p><input type="button" value="Добавить в начало" onclick="addFirst(this.form)"></p>
+  </form>
+</body>
+</html>
