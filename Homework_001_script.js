@@ -10,7 +10,13 @@
 	function remove() {
 		var mainObj = document.getElementById("myUL");
 		var oneChild = mainObj.lastChild;
-        mainObj.removeChild(oneChild);
+        	   if (mainObj.childNodes.length > 0) {
+		       mainObj.removeChild(oneChild);
+		   } 
+		else {
+		      alert("no elemets to remove");
+		}
+	}
 	}
      	function addFirst(form) {
 		var firstItem = document.createElement("li");
