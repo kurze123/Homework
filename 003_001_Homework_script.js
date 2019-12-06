@@ -1,6 +1,6 @@
 		var h = document.querySelector("div");
 		var index = 0;
-		var myVar = setInterval(function() {
+		var myVar = setInterval(function () {
 			index++;
 			h.innerHTML = index;
 			if (index >= 30) {
@@ -12,15 +12,16 @@
 			clearInterval(myVar);
 			h.classList.toggle("class1");
 			if (h.classList.contains("class1")) {
-				clearInterval(myVar);
-			} else {
-				myVar = setInterval(function() {
+				myVar = setInterval(function () {
 					index++;
 					h.innerHTML = index;
 					if (index >= 30) {
 						clearInterval(myVar);
 					}
 				}, 1000);
+
+			} else {
+				clearInterval(myVar);
 			}
 
 		}
@@ -28,7 +29,7 @@
 		function restart() {
 			index = 0;
 			clearInterval(myVar);
-			var myVar2 = setInterval(function() {
+			var myVar2 = setInterval(function () {
 				index++;
 				h.innerHTML = index;
 				if (index >= 30) {
