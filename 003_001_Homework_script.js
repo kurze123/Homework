@@ -1,44 +1,27 @@
-		var h = document.querySelector("div");
+		var div = document.querySelector("div");
 		var index = 0;
-		var myVar = setInterval(function () {
+
+		function interval() {
 			index++;
-			h.innerHTML = index;
+			div.innerHTML = index;
 			if (index >= 30) {
-				clearInterval(myVar);
+				clearInterval(startInterval);
 			}
-		}, 1000);
+		}
+		var startInterval = setInterval(interval, 1000);
 
 		function stopContinue() {
-			clearInterval(myVar);
-			h.classList.toggle("class1");
-			if (h.classList.contains("class1")) {
-				myVar = setInterval(function () {
-					index++;
-					h.innerHTML = index;
-					if (index >= 30) {
-						clearInterval(myVar);
-					}
-				}, 1000);
+			clearInterval(startInterval);
+			/*			clearInterval(myVar);*/
+			div.classList.toggle("class1");
+			if (div.classList.contains("class1")) {
+				setInterval(interval, 1000);
 
 			} else {
-				clearInterval(myVar);
+				clearInterval(startInterval);
 			}
-
 		}
 
 		function restart() {
 			index = 0;
-			clearInterval(myVar);
-			var myVar2 = setInterval(function () {
-				index++;
-				h.innerHTML = index;
-				if (index >= 30) {
-					clearInterval(myVar2);
-				}
-			}, 1000);
 		}
-		/*for(var i = 0; i<=30; i++){
-			setTimeout(function(){
-					h.innerHTML = i;
-			}, 1000*i);
-		}*/
