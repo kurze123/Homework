@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Homework</title>
+	<style>
+		body {
+			background: #808080;
+		}
+
+		div {
+			font-size: 24px;
+			color: crimson;
+		}
+
+	</style>
+</head>
+
+<body>
+
+	<div id="container">
+		<div class="pane">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores pariatur illo eius eligendi, soluta, necessitatibus aspernatur, incidunt quia accusantium, alias distinctio adipisci ipsam est iusto vero perspiciatis. Veritatis, nobis doloremque.</p>
+			<button class="remove-button">Remove</button>
+		</div>
+		<div class="pane">
+			<p>Lorem ipsum dolor sit amet, consec4tetur adipisicing elit. Asperiores pariatur illo eius eligendi, soluta, necessitatibus aspernatur, incidunt quia accusantium, alias distinctio adipisci ipsam est iusto vero perspiciatis. Veritatis, nobis doloremque.</p>
+			<button class="remove-button">Remove</button>
+		</div>
+		<div class="pane">
+			<p>Lorem ipsum dolor sit amet, consect3etur adipisicing elit. Asperiores pariatur illo eius eligendi, soluta, necessitatibus aspernatur, incidunt quia accusantium, alias distinctio adipisci ipsam est iusto vero perspiciatis. Veritatis, nobis doloremque.</p>
+			<button class="remove-button">Remove</button>
+		</div>
+		<div class="pane">
+			<p>Lorem ipsum dolor sit amet, consec2tetur adipisicing elit. Asperiores pariatur illo eius eligendi, soluta, necessitatibus aspernatur, incidunt quia accusantium, alias distinctio adipisci ipsam est iusto vero perspiciatis. Veritatis, nobis doloremque.</p>
+			<button class="remove-button">Remove</button>
+		</div>
+		<div class="pane">
+			<p>Lorem ipsum dolor sit amet, cons1ectetur adipisicing elit. Asperiores pariatur illo eius eligendi, soluta, necessitatibus aspernatur, incidunt quia accusantium, alias distinctio adipisci ipsam est iusto vero perspiciatis. Veritatis, nobis doloremque.</p>
+			<button class="remove-button">Remove</button>
+		</div>
+
+
+	</div>
+
+	<script>
+		var allButtons = document.querySelectorAll(".remove-button");
+		for (var i = 0; i < allButtons.length; i++) {
+			allButtons[i].onclick = function(event) {
+				var pane = event.target.closest('.pane');
+				pane.remove();
+			};
+		}
+
+	</script>
+</body>
+
+</html>
+<!-- Создайте 5 блоков с текстом. Добавьте в каждый из блоков кнопку для его удаления. Используйте только один обработчик.
+    Доработайте пример 004_Attr_Tech.html таким образом, чтобы при наведении на span элементы, подсказка сплыва под ними, а не в модальном окне. Используйте addEventListener -->

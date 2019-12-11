@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>HomeWork</title>
+	<style>
+		div {
+			display: none;
+		}
+
+	</style>
+</head>
+
+<body>
+	<a href="#">Text
+		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur veritatis, voluptatem in, harum ratione suscipit sequi libero repellendus neque dolorem, vel officiis doloribus, quod asperiores laboriosam maiores. Hic eos, modi?</div>
+	</a>
+	<br/>
+	<button>Remove Event</button>
+	<script>
+		window.onload = function() {
+			var div = document.querySelector("div");
+			var a = document.querySelector("a");
+			a.addEventListener("click", showDiv);
+			function showDiv(e) {
+				e.preventDefault();
+				div.classList.toggle("class1");
+				if (div.classList.contains("class1")) {
+					div.style.display = "block";
+				} else {
+					div.style.display = "none";
+				}
+			}
+			var button = document.querySelector("button");
+			button.addEventListener("click", removeEvent);
+			function removeEvent(){
+				a.removeEventListener("click", showDiv);
+			}
+		}
+
+	</script>
+</body>
+
+</html>
