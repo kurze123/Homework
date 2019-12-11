@@ -1,0 +1,51 @@
+	<!-- 
+	1. создайте div, при клике на него, div начинает двигаться вправо, при клике на кнопку - останавливается, при попадании div к краю окна, он переходит к началу окна. 
+	-->
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>HomeWork</title>
+		<style>
+			#ball {
+				width: 100px;
+				height: 100px;
+				background: crimson;
+				border-radius: 50%;
+
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<div id="ball"></div>
+		<button>Stop</button>
+		<script>
+			var ball = document.getElementById("ball");
+			var ballStartPoint = 0;
+			var ballIntervalMove;
+			var button = document.querySelector("button");
+			var ballSize = ball.clientWidth;
+			if (button) {
+				button.onclick = function() {
+					clearInterval(ballIntervalMove);
+				}
+			}
+			ball.onclick = function() {
+				ballIntervalMove = setInterval(moveBall, 7);
+			}
+
+			function moveBall() {
+				ball.style.marginLeft = ballStartPoint + "px";
+				ballStartPoint = ballStartPoint + 1;
+				if (ballStartPoint + ballSize > screen.width) {
+					ball.style.marginLeft = 0;
+				}
+			}
+
+		</script>
+	</body>
+
+	</html>
