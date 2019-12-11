@@ -1,0 +1,38 @@
+	<!--     Создайте счетчик секунд, который начинает отчет с 1 и заканчивается на 30, также добавьте кнопки который останавливают отчет, и запускают его заново и добавьте кнопку обнуляющую отcчет. Также попробуйте изменить код так чтобы отчет начинался с 30 и заканчивался на 1. -->
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+	<meta charset="UTF-8">
+	<title>timer</title>
+</head>
+
+<body>
+	<div></div>
+	<button onclick="beginTimer()">Start</button>
+	<button onclick="pauseTimer()">Pause</button>
+	<button onclick="restartTimer()">Restart</button>
+	<script>
+		var seconds = 0;
+		var div = document.querySelector("div");
+		var counter;
+
+		function beginTimer() {
+			 counter = setInterval(function() {
+				seconds++;
+				div.innerHTML = seconds;
+				if (seconds == 30) {
+					clearInterval(counter);
+				}
+			}, 1000)
+		}
+
+		function pauseTimer() {
+			clearInterval(counter);
+		} // kak sdelat asifddhjsfodshfouid
+
+		function restartTimer() {
+			seconds = 0;
+		}
+	</script>
+</body></html>
