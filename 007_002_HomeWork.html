@@ -1,0 +1,40 @@
+<!-- Реализуйте последний 2 слайда в презентации с помощью пройденого на уроке материала -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Homework</title>
+</head>
+
+<body>
+<div>Смотрите в консоль</div>
+	<script>
+		function Man(walk, eat, drink) {
+			this.walk = walk;
+			this.eat = eat;
+			this.drink = drink;
+		};
+
+		// ---- класс наследник ----
+
+		function Doctor(cure) {
+			this.cure = cure;
+		};
+
+		function Soldier(shoot) {
+			this.shoot = shoot;
+		};
+
+		Doctor.prototype = new Man("walk", "eat", "drink");
+		Soldier.prototype = new Man("walk", "eat", "drink");
+		var soldier = new Soldier("right on target");
+		var doctor = new Doctor("cure well");
+
+		console.log(soldier);
+		console.log(doctor);
+
+	</script>
+</body>
+
+</html>

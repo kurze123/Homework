@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Homework</title>
+</head>
+
+<body>
+	<div>Смотрите в консоль</div>
+	<script>
+		function AlphaDoctor(cure) {
+			this.cure = cure;
+		};
+
+		function Doctor(walk, eat, drink) {
+
+			this.walk = walk;
+			this.eat = eat;
+			this.drink = drink;
+		};
+
+		function Surgeon() {
+			this.showInfo = function() {
+				document.write("treat teeth");
+			};
+
+			function Dentist() {
+				this.showInfo = function() {
+					document.write("perform operations");
+				};
+			};
+			Doctor.prototype = new AlphaDoctor("cure");
+			Dentist.prototype = new Doctor(walk, eat, drink);
+			Surgeon.prototype = new Doctor(walk, eat, drink);
+			var doctor = new AlphaDoctor("fast", "good", "enough");
+			var surgeon = new Doctor("fast", "good", "enough");
+			var dentist = new Doctor("fast", "good", "enough");
+
+			console.log(doctor);
+			console.log(surgeon);
+			console.log(dentist);
+
+	</script>
+</body>
+
+</html>
