@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div class="enter">
+
+</div>
+<input type="button" value="Exit" class="logOut">
+<script>
+    var enter = document.querySelector(".enter");
+    var loginValue = "login";
+function getLogin(){
+    var login = prompt("Insert your Login");
+    if(login == "admin" || login == "Admin"){
+        window.localStorage.setItem(loginValue, login);
+        showInfo();
+    }
+    else{
+        alert("Incorrect Login, Try again");
+        getLogin()
+    }
+}
+function showInfo () {
+    var user = window.localStorage.getItem(loginValue);
+    enter.innerHTML = "User "  +  user  + " enter";
+}
+var button = document.querySelector(".logOut");
+button.addEventListener("click", exit);
+function exit(){
+    window.localStorage.removeItem(loginValue);
+    location.reload();
+}
+getLogin();
+</script>
+
+</body>
+</html>
