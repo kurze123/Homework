@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Cookie</title>
+</head>
+
+<body>
+	<script>
+		var cookieLogin = "login";
+		getLogin();
+		function getLogin() {
+			var answer = prompt("Insert login");
+			if (answer == "Admin" || answer == "admin") {
+				setCookie(answer);
+				showResult();
+			} else {
+				alert("Not right login name! Try again");
+				getLogin();
+			}
+		};
+
+		function setCookie(login) {
+			var cookieLogin = "login=" + login + ";";
+			document.cookie = cookieLogin;
+		};
+
+		function getCookie(cookiename) {
+			var name = cookiename + "=";
+			var cookieArray = document.cookie.split(';');
+			for (var i = 0; i < cookieArray.length; i++) {
+				var cookieValue = cookieArray[i];
+				while (cookieValue.charAt(0) == ' ') {
+					cookieValue = cookieValue.substring(1);
+				};
+				if (cookieValue.indexOf(name) != -1) {
+					return cookieValue.substring(name.length, cookieValue.length);
+				}
+			};
+			return "";
+		};
+
+		function showResult() {
+			var userName = getCookie(cookieLogin);
+			document.write("User " + userName + " login");
+			document.write("<br/> <button id='logout'>Exit</button>");
+		};
+
+		var logOutbutton = document.getElementById("logout");
+		logOutbutton.addEventListener("click", function() {
+			location.reload();
+		});
+
+	</script>
+
+</body>
+
+</html>
