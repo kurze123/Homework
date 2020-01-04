@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.data {
+			vertical-align: middle;
+			text-align: center;
+		}
+		h1 {
+			font-size: 40px;
+		}
+		li {
+			font-size: 40px;
+		}
+		button {
+			bottom: 20px;
+			right: 30px;
+			font-size: 36px;
+			border: none;
+			background-color: black;
+			border-radius: 4px;
+			color: #feda4a;
+		}
+		table {
+			border-collapse: collapse;
+			border: 5px solid #feda4a;
+		}
+		td {
+			border: 5px solid #feda4a;
+			text-align: justify;
+			font-size: 40px;
+		}
+		.backToList {
+			display: none;
+		}
+		tr {
+			text-align: justify;
+		}
+		body {
+			color: #feda4a;
+			font-family: 'Pathway Gothic One', sans-serif;
+			background: black;
+			text-align: justify;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div class="page"></div>
+	<script type="text/javascript">
+		var items = {};
+		var myTable = document.querySelector(".myTable");
+		var list = document.querySelector(".page");
+
+		function showInformation(information) {
+			var table = document.createElement("table");
+			list.innerHTML = "";
+			list.appendChild(table);
+
+			var h1 = document.createElement("h1");
+			list.prepend(h1);
+			h1.innerHTML = information.name;
+
+			var tr = document.createElement("tr");
+			table.appendChild(tr);
+			tr.innerHTML =  `<td>Birth Year</td> <td class="data">${information.birth_year}</td>`;
+
+			tr = document.createElement("tr");
+			table.appendChild(tr);
+			tr.innerHTML = `<td>Gender</td> <td class="data">${information.gender}</td>`;
+
+			tr = document.createElement("tr");
+			table.appendChild(tr);
+			tr.innerHTML = `<td>Films</td> <td><ul class="films data"></ul></td>`;
+
+			tr = document.createElement("tr");
+			table.appendChild(tr);
+			tr.innerHTML = `<td>Homeworld</td> <td class="homeworld data"></td>`;
+
+			tr = document.createElement("tr");
+			table.appendChild(tr);
+			tr.innerHTML = `<td>Species</td> <td class="species data"></td>`;
+			var back = document.createElement("button");
+			back.innerHTML = "Back To List";
+			list.appendChild(back);
+			back.addEventListener("click", function() {
+				renderList(items);
+			});
+			urlHomeworld(information.homeworld);
+			urlSpecies(information.species);
+			urlFilms(information.films);
+			console.log(information);
+
+		}
+
+		function nextPage() {
+			refreshUrl(items.next);
+			if (items.next) {
+				refreshUrl(items.next);
+			} else {
+				alert("No more pages!");
+			}
+		}
+
+		function previousPage() {
+			if (items.previous) {
+				refreshUrl(items.previous);
+			} else {
+				alert("No more pages!");
+			}
+		}
+
+		function refreshUrl(url) {
+			fetch(url).then(function(resp) {
+				return resp.json();
+			}).then(function(data) {
+				items = data;
+				renderList(data);
+			})
+		}
+
+		function renderList(data) {
+			list.innerHTML = "";
+			data.results.forEach(item => {
+				var li = document.createElement("li");
+				list.appendChild(li);
+				li.innerHTML = item.name;
+				li.addEventListener("click", function() {
+					showInformation(item);
+				});
+			});
+			if(data.previous){
+				var previous = document.createElement("button");
+				previous.innerHTML = "Previous";
+				list.appendChild(previous);
+				previous.addEventListener("click", previousPage);
+			}
+			if(data.next){
+				var next = document.createElement("button");
+				next.innerHTML = "Next";
+				list.appendChild(next);
+				next.addEventListener("click", nextPage);
+			}
+		}
+
+		function urlHomeworld(link) {
+				fetch(link).then(function(resp) {
+					return resp.json();
+				}).then(function(data) {
+					console.log(data);
+					var homeworld = document.querySelector(".homeworld");
+					homeworld.innerHTML = data.name;
+				})
+		}
+
+		function urlSpecies(link) {
+			fetch(link).then(function(resp) {
+				return resp.json();
+			}).then(function(data) {
+				console.log(data);
+				var species = document.querySelector(".species");
+				species.innerHTML = data.name;
+			})
+		}
+
+		function urlFilms(link) {
+			link.forEach(item => {
+			fetch(item).then(function(resp) {
+				return resp.json();
+			}).then(function(data) {
+				console.log(data);
+				var films = document.querySelector(".films");
+				var li = document.createElement("li");
+				films.appendChild(li);
+				li.innerHTML = data.title;
+				})
+			})
+		}
+		refreshUrl('https://swapi.co/api/people/');
+
+	</script>
+</body>
+
+</html>
